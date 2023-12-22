@@ -39,11 +39,13 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.static("uploads"));
+
 //Set Template Engine
 app.set("view engine", "ejs");
 
 //route Prefix
-app.use("", require('./routes/routes'))
+app.use("", require("./routes/routes"));
 
 app.listen(PORT, () => {
   console.log(`Server started on http://localhost:${PORT}`);
